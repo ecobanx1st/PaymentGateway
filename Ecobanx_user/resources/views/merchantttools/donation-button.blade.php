@@ -1,0 +1,415 @@
+@php $title = "Donation Button"; $atitle ="merchant";
+@endphp
+@include('layouts.headercss')
+</section>
+</header>
+
+<section class="Dashboard-page">
+	<div class="container-fluid">
+		<div class="row">
+
+			@include('layouts.menu')
+
+
+			<div class="col-lg-10 col-xl-10 col-md-12 col-sm-12 col-xs-12">
+
+				<div class="header-part-outer">
+
+					<div class="common-header-style title-outer">
+						<div class="row">
+
+							<div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-xs-6">
+								<div class="logo-payment"><a href="dashboard.html"><img src="img/logo.png" alt="logo"></a></div>
+							</div>
+
+							<div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-xs-6">
+								<div class="notify-part">
+									<div class="notify"><img src="img/Notification.png"></div>
+									<div class="message"><img src="img/message.png"></div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="head-title-part">
+						<h1>Donation Button Maker</h1>
+						<!-- <p>We are on a mission to help developers like you to build beautiful projects for free.</p> -->
+					</div>
+
+				</div>
+
+				<article class="inner-banner">
+					<section class="loginbg inner-banner-ht buttonmaker">
+						<div class="container">
+							<div class="col-md-12 col-sm-12 col-xs-12 center-content securitybox">
+
+								<div class="form-container">
+									<form action='{{ route("donationButtonsubmit") }}' method='POST'>
+										{{ csrf_field() }}
+										<div class="table-responsive" data-simplebar>
+											<table class="table table-small-font no-mb table-borderded">
+												<thead>											
+													<tr>
+														<th>Item</th>
+														<th>Value</th>
+														<th>Required?</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Merchant ID <span class="text-danger">*</span> </td>
+														<td>
+															<input name="merchant" value="{{ $merchant }}" class="form-control" @if($merchant !="") readonly="" @endif />
+															@if ($errors->has('merchant'))
+															<span class="help-block">
+																<strong class="text text-danger">{{ $errors->first('merchant') }}</strong>
+															</span>
+															@endif
+															<h5 class="frm-subtext">You can find this on your My Account page. If you were logged in it would fill this in automatically.</h5>
+														</td>
+
+														<td class="text-center">Yes</td>
+													</tr>
+													<tr>
+														<td>Donation Name <span class="text-danger">*</span></td>
+														<td>
+															<input name="donation_name" value="{{ old('donation_name') }}" class="form-control">
+															@if ($errors->has('donation_name'))
+															<span class="help-block">
+																<strong class="text text-danger">{{ $errors->first('donation_name') }}</strong>
+															</span>
+															@endif
+
+														</td>
+
+														<td class="text-center">Yes</td>
+													</tr>
+													<tr>
+														<td>Donation Amount <span class="text-danger">*</span> </td>
+														<td class="slectinputbox">
+															<input name="donation_amount" value="10.00000000" class="form-control"> <span class="selectrightbox">
+																<select class="form-control" name="paymentcurrency">
+																	<option value="USD">USD</option>
+																	@forelse($comDetails as $key => $val)
+																	<option value="{{$val->source}}">{{$val->source}}</option>
+																	@empty
+																	@endforelse
+																</select> 
+															</span>
+															@if ($errors->has('donation_amount'))
+															<span class="help-block">
+																<strong class="text text-danger">{{ $errors->first('donation_amount') }}</strong>
+															</span>
+															@endif
+														</td>
+
+														<td style="text-align:center">Yes</td>
+													</tr>
+													<tr>
+														<td>Donation Description</td>
+														<td>
+															<input name="item_desc" class="form-control" value="">
+															@if ($errors->has('item_desc'))
+															<span class="help-block">
+																<strong class="text text-danger">{{ $errors->first('item_desc') }}</strong>
+															</span>
+															@endif
+														</td>
+														<td class="text-center">No</td>
+													</tr>
+													<tr>
+														<td>Item Number [not visible to buyer] </td>
+														<td>
+															<input name="item_number" value="" class="form-control">
+															@if ($errors->has('item_number'))
+															<span class="help-block">
+																<strong class="text text-danger">{{ $errors->first('item_number') }}</strong>
+															</span>
+															@endif
+														</td>
+														<td class="text-center">No</td>
+													</tr>
+													<tr>
+														<td>Invoice [not visible to buyer] <span class="text-danger">*</span> </td>
+														<td>
+															<input name="invoice" value="" class="form-control">
+															@if ($errors->has('invoice'))
+															<span class="help-block">
+																<strong class="text text-danger">{{ $errors->first('invoice') }}</strong>
+															</span>
+															@endif
+														</td>
+														<td class="text-center">No</td>
+													</tr>
+													<tr>
+														<td>Tax Amount</td>
+														<td>
+															<input name="taxf" value="0.00000000" class="form-control">
+															@if ($errors->has('taxf'))
+															<span class="help-block">
+																<strong class="text text-danger">{{ $errors->first('taxf') }}</strong>
+															</span>
+															@endif
+														</td>
+														<td class="text-center">No</td>
+													</tr>
+													<tr>
+														<td>Don't Collect Shipping Address</td>
+														<td>
+															<label class="checkcont">
+																<input name="shipping_address" type="checkbox" value="1"/> <span class="checkmark"></span>
+															</label>
+															@if ($errors->has('shipping_address'))
+															<span class="help-block">
+																<strong class="text text-danger">{{ $errors->first('shipping_address') }}</strong>
+															</span>
+															@endif
+														</td>
+														<td class="text-center">No</td>
+													</tr>
+													<tr>
+														<td>Shipping Cost</td>
+														<td>
+															<input name="shipping_cost" class="form-control" value="0.00000000">
+															@if ($errors->has('shipping_cost'))
+															<span class="help-block">
+																<strong class="text text-danger">{{ $errors->first('shipping_cost') }}</strong>
+															</span>
+															@endif
+														</td>
+														<td class="text-center">No</td>
+													</tr>
+													<tr>
+														<td>Success URL <span class="text-danger">*</span></td>
+														<td>
+															<input name="success_url" class="form-control" value="{{ old('success_url') }}">
+															<h5 class="frm-subtext">Buyer will be prompted to continue to this URL after successful payment.</h5>
+															@if ($errors->has('success_url'))
+															<span class="help-block">
+																<strong class="text text-danger">{{ $errors->first('success_url') }}</strong>
+															</span>
+															@endif 
+
+														</td>
+
+														<td class="text-center">Yes</td>
+													</tr>
+													<tr>
+														<td>Cancel URL <span class="text-danger">*</span></td>
+														<td>
+															<input name="cancel_url" class="form-control" value="{{ old('cancel_url') }}">
+															<h5 class="frm-subtext">Buyer will be given this URL to return to your store instead of checking out.</h5>
+
+															@if ($errors->has('cancel_url'))
+															<span class="help-block">
+																<strong class="text text-danger">{{ $errors->first('cancel_url') }}</strong>
+															</span>
+															@endif 
+														</td>
+														<td class="text-center">Yes</td>
+													</tr>
+													<tr>
+														<td>IPN URL</td>
+														<td>
+															<input name="ipn_url" class="form-control" value="">
+															<h5 class="frm-subtext">Leave blank to use your account default.</h5>
+															@if ($errors->has('ipn_url'))
+															<span class="help-block">
+																<strong class="text text-danger">{{ $errors->first('ipn_url') }}</strong>
+															</span>
+															@endif
+														</td>
+														<td class="text-center">No</td>
+													</tr>
+
+													<tr>
+														<td>Button Image <span class="text-danger">*</span></td>
+														<td>
+															<table>
+																<tbody>
+																	<tr>
+																		<td>
+
+																			<label class="checkcont">
+																				<input name="radio" type="radio" value="1" checked /> <span class="checkmark"></span>
+																			</label>
+
+																		</td>
+
+																		<td class="buttonlogo">
+																			<img src="{{ url('img/paymentlogo.svg') }}">
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			@if ($errors->has('radio'))
+																			<span class="help-block">
+																				<strong class="text text-danger">{{ $errors->first('radio') }}</strong>
+																			</span>
+																			@endif 
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</td>
+
+														<td class="text-center">Yes</td>
+													</tr>
+													<tr>
+														<td colspan="3" align="center">
+															<button type="submit" class="btn blues-btn fnt-reg mb-20 mt-20 sitebtn">Generate Button</button>
+														</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="3">For a full list of fields and detailed information please check out the <a href="{{ route('donationField') }}" class="alinktext">HTML POST Fields</a> page.</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</form>
+								</div>
+							</div>			
+						</div>		
+					</section>
+				</article>
+
+			</div>
+
+		</div>
+	</div>
+</section>
+
+
+
+@if($requestparam !="")
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Donation Button Maker</h4>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" fdprocessedid="jhervp"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-group-append copybtnbg" onclick="myFunction()" style="cursor: pointer;">
+								<span class="input-group-text btn sitebtn btn-sm" id="myTooltip"><strong><i class="fa fa-clipboard"></i> Copy Button Code</strong></span>
+							</div>
+						</div>
+					</div><br>
+					<div class="alert alert-info">
+						<i class="fa fa-info-circle"></i> Copy the below code, after page refresh then you can't recover this code again!
+					</div>
+					<div class="buttonmakerbg">
+						<div class="examplebtnbg">
+							<div id="showHtmlForm">
+								<textarea rows="10" class="form-control" id="myInput">
+									<form action="{{ url('/makepayment') }}" method="post">
+										<input type="hidden" name="cmd" value="_donate">
+										<input type="hidden" name="reset" value="1">
+										<input type="hidden" name="merchant" value="{{ $requestparam->merchant }}">
+										<input type="hidden" name="donation_name" value="{{ $requestparam->donation_name }}">
+										<input type="hidden" name="item_desc" value="{{ $requestparam->item_desc }}">
+										<input type="hidden" name="item_number" value="{{ $requestparam->item_number }}">
+										<input type="hidden" name="invoice" value="{{ $requestparam->invoice }}">
+										<input type="hidden" name="shippingf" value="{{$requestparam->shipping_cost}}">
+										<input type="hidden" name="shipping2f" value="{{$requestparam->shipping_cost_additional}}">
+										<input type="hidden" name="buyer_to_leave_msg" value="{{$requestparam->leave_msg}}">
+										<input type="hidden" name="custom" value="{{ $requestparam->custom }}">
+										<input type="hidden" name="currency" value="{{ $requestparam->paymentcurrency }}">
+										<input type="hidden" name="amount" value="{{ $requestparam->donation_amount }}">
+										<input type="hidden" name="want_shipping" value="{{ $requestparam->shipping_address == 1 ? 1:0 }}">
+										<input type="hidden" name="success_url" value="{{ $requestparam->success_url }}">
+										<input type="hidden" name="cancel_url" value="{{ $requestparam->cancel_url }}">
+										<input type="hidden" name="ipn_url" value="{{ $requestparam->ipn_url }}">
+										<input type="hidden" name="tax" value="{{ $requestparam->taxf }}">
+										<input type="image" src="{{ $requestparam->radio }}" alt="">
+									</form>
+								</textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(window).on('load', function() {
+		$('#staticBackdrop').modal('show');
+	});
+</script>
+@endif
+
+<script>
+	function myFunction() {
+		var copyText = document.getElementById("myInput");
+		copyText.select();
+		document.execCommand("copy");
+
+		var tooltip = document.getElementById("myTooltip");
+		tooltip.innerHTML = "Copied";
+	}
+</script>
+
+<script>
+
+  $(document).ready(function(){
+
+   $('.extras').click(function(){
+
+    $('.profile-list').toggleClass('showing')
+
+  });
+
+   $('.more-menu-bottom').click(function(){
+
+    $('.extra-menu-mobile').toggleClass('showall-extramenus')
+
+  })
+
+ })
+  
+</script>
+<script type="text/javascript">
+	$('#convert_currency').on('change', function(){
+    calcultePrice();
+  });
+  $('#paymentcurrency').on('change', function(){
+    calcultePrice();
+  });
+  $('#item_value').on('keyup', function(){
+    calcultePrice();
+  });
+  function calcultePrice(){
+  var formData = $('#profileForm').serialize();
+  var data_url = $('#pricecalculate_url').val();
+
+  $.ajax({
+    type: "post",
+    url: data_url,
+    data: formData,
+    dataType: "json",
+    success: function(data){
+      if(data.status)
+      {
+        var result = data.result;
+        $('#item_amount').val(result.amount);
+      }
+      else
+      {
+        $('#errorSellMsg').html(data.msg);
+      }
+    }
+  });
+  return false;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+const Web3 = require('web3');
+
+// Replace with your Ethereum node RPC URL (Infura, Alchemy, or local node)
+const rpcURL = 'https://api.wficoin.io';
+
+// Initialize web3 instance with the provided RPC URL
+const web3 = new Web3(new Web3.providers.HttpProvider(rpcURL));
+
+// Ethereum address to fetch transaction history for
+const address = '0x8a272e76986705653b5f9e4f0cbc36ba50e6869b';
+
+// Function to fetch the latest block number
+async function getLatestBlockNumber() {
+	return 500;
+    return await web3.eth.getBlockNumber();
+}
+
+// Function to get transaction history by scanning blocks
+async function getTransactionHistory(address) {
+    const latestBlock = await getLatestBlockNumber();
+    const startBlock = 467; // You can start from a specific block if needed
+
+    for (let i = startBlock; i <= latestBlock; i++) {
+		console.log('id',i);
+        const block = await web3.eth.getBlock(i, true);
+        if (block && block.transactions) {
+            block.transactions.forEach((tx) => {
+                if (tx.from === address || tx.to === address) {
+                    console.log(`Block Number: ${tx.blockNumber}`);
+                    console.log(`From: ${tx.from}`);
+                    console.log(`To: ${tx.to}`);
+                    console.log(`Value: ${web3.utils.fromWei(tx.value, 'ether')} ETH`);
+                    console.log(`Transaction Hash: ${tx.hash}`);
+                    console.log(`---------------------------------`);
+                }
+            });
+        }
+    }
+}
+
+// Execute the function
+getTransactionHistory(address);

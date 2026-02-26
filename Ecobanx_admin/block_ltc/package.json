@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "litecore-lib": "^0.13.22"
+  }
+}

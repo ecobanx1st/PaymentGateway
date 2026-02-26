@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Traits\Fireblock;
+
+class HomeController extends Controller
+{
+    use Fireblock;
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //$this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        return redirect('/profile');
+    }
+
+    public function testFirblock(){
+        $asset = 'BTC_TEST';
+        $customerRefId = 'Test12';
+        $description ="Test Wallet";
+        $data = $this->addressGerenateVault($asset,$customerRefId,$description);
+        dd($data);
+    }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "fireblock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "crypto": "^1.0.1",
+    "fireblocks-sdk": "^5.1.4",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.0",
+    "path": "^0.12.7",
+    "process": "^0.11.10",
+    "querystring": "^0.2.1",
+    "util": "^0.12.5",
+    "uuid": "^9.0.0",
+    "web3": "^1.2.9"
+  }
+}

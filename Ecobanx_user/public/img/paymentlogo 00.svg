@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 214 53">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.13em;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        font-family: SFProDisplay-Regular, 'SF Pro Display';
+      }
+
+      .cls-4 {
+        fill: #68b94b;
+      }
+
+      .cls-5 {
+        font-family: SFProDisplay-Bold, 'SF Pro Display';
+        font-weight: 700;
+      }
+
+      .cls-3 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        fill: #fff;
+        font-size: 14.47px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-4" width="214" height="53" rx="5.82" ry="5.82"/>
+  <text class="cls-6" transform="translate(47.67 31.03)"><tspan class="cls-3" x="0" y="0">A</tspan><tspan class="cls-2" x="8.99" y="0">dd </tspan><tspan class="cls-1" x="27.98" y="0">T</tspan><tspan class="cls-2" x="34.48" y="0">o Cart </tspan><tspan class="cls-5" x="74.09" y="0">ECO BANX</tspan></text>
+  <image width="512" height="512" transform="translate(17.92 12.2) scale(.05)" xlink:href="add-to-cart (4).png"/>
+</svg>

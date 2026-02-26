@@ -1,0 +1,214 @@
+@font-face {
+  font-family: "ClashDisplay, sans-serif";
+  src: url("../font/Clash-Display/ClashDisplay-Regular.otf");
+}
+@font-face {
+  font-family: "ClashDisplay-Bold, sans-serif";
+  src: url("../font/Clash-Display/ClashDisplay-Bold.otf");
+}
+@font-face {
+  font-family: "ClashDisplay-Medium, sans-serif";
+  src: url("../font/Clash-Display/ClashDisplay-Medium.otf");
+}
+
+body {
+  font-family: "ClashDisplay, sans-serif";
+  font-weight: 400;
+  margin: 0px;
+  padding: 0px;
+  background: #e6eaee;
+}
+
+section {
+  padding: 50px 0px;
+}
+.fnt-bld {
+  font-family: "ClashDisplay-Bold, sans-serif";
+  font-weight: 600;
+}
+.paymentstepsbg .form-control {
+  border: 1px solid #e8e8e8;
+  box-shadow: none;
+  outline: none;
+  border-radius: 3px;
+  background: #fff;
+  color: #333;
+  height: 38px;
+}
+.atextlink,
+.atextlink:hover,
+.atextlink:focus {
+  color: #027cf3;
+  font-size: 15px;
+  text-decoration: none;
+}
+.paymentstepsbg .form-group {
+  margin-bottom: 15px;
+}
+.btn-green {
+  width: 100%;
+  margin-top: 20px;
+  padding: 13px 13px;
+  border-color: #0f73cc;
+  border-radius: 3px;
+  background-color: #088a4c;
+  text-align: center;
+  color: #fff;
+  font-size: 17px;
+}
+.btn-green:hover,
+.btn-green:focus,
+.btn-green:active {
+  color: #fff;
+  background-color: #088a4c;
+}
+.notestext {
+  color: #7a7979;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+}
+.headt {
+  color: #333;
+  font-size: 18px;
+}
+.starlist li {
+  list-style: none;
+  float: left;
+  padding-right: 2px;
+  color: #049f47;
+  font-size: 14px;
+}
+.starlist li i {
+  color: #049f47;
+  font-size: 14px;
+}
+.starlist {
+  padding-left: 9px;
+}
+.notestlist span {
+  float: left;
+}
+
+.checkborderbox {
+  width: 100%;
+  display: inline-block;
+  margin-top: 15px;
+}
+.checkborderbox table > tbody > tr {
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+}
+.checkborderbox table > tbody > tr > td {
+  border-top: 0px;
+  padding: 12px 11px;
+  font-size: 13px;
+  color: #333;
+}
+.coinbg {
+  border-radius: 4px;
+  border: 1px solid #72b611;
+  background-color: rgba(92, 184, 92, 0.04);
+  padding: 3px 7px;
+  display: table;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+.coinbg > div {
+  display: table-cell;
+  vertical-align: middle;
+  float: none;
+}
+.coinbg img {
+  width: 30px;
+}
+.coinbg .h4 {
+  font-size: 14px;
+}
+.cointab {
+  width: 39px;
+}
+.coinbg .h5 {
+  font-size: 14px;
+  font-weight: 600;
+}
+.coinselect {
+  padding: 0px;
+}
+.coinbg:hover {
+  border: 1px solid #72b611;
+  background-color: rgba(92, 184, 92, 0.04);
+}
+.coinselect .selected {
+  border: 2px solid #72b611;
+  background-color: rgba(92, 184, 92, 0.04);
+}
+.center-content {
+  margin: 0px auto;
+  float: none;
+}
+.stepsbanner {
+  width: 100%;
+  display: inline-block;
+}
+input::placeholder {
+  color: #8e8d8d !important;
+  font-size: 14px;
+}
+input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #8e8d8d !important;
+  font-size: 14px;
+}
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #8e8d8d !important;
+  font-size: 14px;
+}
+input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #8e8d8d !important;
+  font-size: 14px;
+}
+input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #8e8d8d !important;
+  font-size: 14px;
+}
+
+.checkborderbox .table {
+  margin-bottom: 10px;
+}
+
+.logo img {
+  width: 100%;
+  max-width: 150px;
+  margin: 10px 0px;
+}
+.paymentstepsbg {
+  background: #e6eaee;
+}
+.boxb {
+  background: #fff;
+  padding: 10px 26px;
+}
+
+a,
+a:hover,
+a:focus {
+  outline: none;
+  box-shadow: none;
+}
+.boxcenter {
+  margin-top: 50px;
+}
+.pb-20 {
+  padding-bottom: 20px;
+}
+.loaderred {
+  width: 100%;
+  margin-bottom: 20px;
+  max-width: 220px;
+}

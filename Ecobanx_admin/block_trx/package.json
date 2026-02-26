@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@noble/secp256k1": "^1.7.1",
+    "tronweb": "^5.3.2"
+  }
+}

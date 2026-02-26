@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="147.004" height="31.041" viewBox="0 0 147.004 31.041">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#0099a9"/>
+      <stop offset="1" stop-color="#0099a9" stop-opacity="0.102"/>
+    </linearGradient>
+  </defs>
+  <g id="Graph" transform="translate(-4948.009 1347.322)">
+    <path id="Path_1285" data-name="Path 1285" d="M4948.509-1366.174h20.647l11.184-2.581,10.324,2.581h8.173l7.743,3.871,5.162-3.871,3.872,3.871,10.324,3.011,18.927-9.464,5.592,6.452,7.313-24.519h9.894l9.033,24.519,12.044-21.508,5.592,9.894v17.636H4948.509v-7.743" transform="translate(0 40)" fill="url(#linear-gradient)"/>
+    <path id="Path_1286" data-name="Path 1286" d="M4948.509-1366.174h20.647l11.184-2.581,10.324,2.581h8.173l7.743,3.871,5.162-3.871,3.872,3.871,10.324,3.011,18.927-9.464,5.592,6.452,7.313-24.519h9.894l9.033,24.519,12.044-21.508,5.592,9.894" transform="translate(0 40)" fill="none" stroke="#0099a9" stroke-linecap="round" stroke-width="1"/>
+  </g>
+</svg>

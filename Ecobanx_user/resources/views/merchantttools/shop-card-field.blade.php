@@ -1,0 +1,328 @@
+@php $title = "Shop Card Field"; $atitle ="merchant";
+@endphp
+@include('layouts.headercss')
+</section>
+</header>
+
+
+<section class="Dashboard-page">
+  <div class="container-fluid">
+     <div class="row">
+
+      @include('layouts.menu')
+
+
+        <div class="col-lg-10 col-xl-10 col-md-12 col-sm-12 col-xs-12">
+
+               <div class="header-part-outer">
+
+                <div class="common-header-style title-outer">
+                  <div class="row">
+
+                    <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="logo-payment"><a href="dashboard.html"><img src="img/logo.png" alt="logo"></a></div>
+                    </div>
+
+                    <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="notify-part">
+                        <div class="notify"><img src="img/Notification.png"></div>
+                        <div class="message"><img src="img/message.png"></div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="head-title-part">
+                  <h1>Shop Cart HTML POST Fields</h1>
+                  <!-- <p>We are on a mission to help developers like you to build beautiful projects for free.</p> -->
+                </div>
+
+              </div>
+
+
+			  <article class="inner-banner">
+	<section class="loginbg inner-banner-ht buttonmaker">
+		<div class="container">
+			<div class="col-md-12 col-sm-12 col-xs-12 center-content securitybox">
+				<!-- <h3 class="text-center fnt-bld inner-heading">Simple Button Maker</h3> -->
+				<!-- <h4 class="subt text-center pb-30">Instant crypto checkout with easy to use advanced buttons, invoice builder, and an API for custom integrations</h4> -->
+					
+				<div class="form-container">
+					<form action='{{ url("/button-maker-submit") }}' method='POST' enctype='multipart/form-data'>
+						{{ csrf_field() }}
+						<div class="table-responsive" data-simplebar>
+                        <table class="table table-small-font no-mb table-borderded">
+            <thead>
+              <tr>
+                <th>Field Name</th>
+                <th class="text-center">Description</th>
+                <th>Required?</th>
+                <th>Length Limit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="text-center" colspan="4">Main Fields</th>
+              </tr>
+              <tr>
+                <td>cmd</td>
+                <td>This should always be set to '_cart_add'.</td>
+                <td>Yes</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <td>reset</td>
+                <td>This tells the server to delete any cached button data for the user. Set the value to 1</td>
+                <td>Yes</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>merchant</td>
+                <td>Your merchant ID (you can find this on the My Account page).</td>
+                <td>Yes</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <th colspan="4" class="text-center">Item/Payment Description Fields</th>
+              </tr>
+              <tr>
+                <td>currency</td>
+                <td>The currency of the payment (BTC, ETH, BCH, USDT, USDC &amp; EURST).
+                  Values supported: Any crypto or fiat currency on the Supported Coins page.
+                Note we in no way process any fiat currencies, they are simply convenience values so you don't have to convert to BTC or another coin yourself.</td>
+                <td>Yes</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>amount</td>
+                <td>The amount (in the currency chosen) of the payment.</td>
+                <td>Yes</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <td>item_name</td>
+                <td>The name of the item being purchased.</td>
+                <td>Yes</td>
+                <td>128</td>
+              </tr>
+              <tr>
+                <td>item_desc</td>
+                <td>Description of the item being purchased.</td>
+                <td>No</td>
+                <td>128</td>
+              </tr>
+              <tr>
+                <td>item_number</td>
+                <td>This is a passthru variable for your own use. [not visible to buyer]</td>
+                <td>No</td>
+                <td>128</td>
+              </tr>
+              <tr>
+                <td>invoice</td>
+                <td>This is a passthru variable for your own use. [not visible to buyer]</td>
+                <td>No</td>
+                <td>128</td>
+              </tr>
+              <tr>
+                <td>allow_quantity</td>
+                <td>0 = Don't allow buyer to adjust quantity (default).<br> 1 = Allow buyer to adjust quantity.</td>
+                <td>No</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th class="text-center" colspan="4">Shipping Fields</th>
+              </tr>
+              <tr>
+                <td>want_shipping</td>
+                <td>1 = Want buyer's shipping information.0 = Don't want buyer's shipping information. (default)</td>
+                <td>No</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>shippingf</td>
+                <td>Cost of shipping the item.<br>Shipping cost is shippingf*quantity (unless shipping2 is set)</td>
+                <td>No</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <td>shipping2f</td>
+                <td>Cost of shipping each additional item. <br>Shipping cost is shippingf+((quantity-1)*shipping2f)</td>
+                <td>No</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <th class="text-center" colspan="4">Miscellaneous Fields</th>
+              </tr>
+              <tr>
+                <td>ipn_url</td>
+                <td>Sets an IPN URL.If not set or blank defaults to the IPN URL in your settings.</td>
+                <td>No</td>
+                <td>255</td>
+              </tr>
+              <tr>
+                <td>success_url</td>
+                <td>Sets a URL to go to if the buyer does complete checkout.</td>
+                <td>No</td>
+                <td>255</td>
+              </tr>
+              <tr>
+                <td>cancel_url</td>
+                <td>Sets a URL to go to if the buyer decides to not complete checkout.</td>
+                <td>No</td>
+                <td>255</td>
+              </tr>
+              <tr>
+                <td>lang</td>
+                <td>Automatically set the checkout language to this language code. For a list of supported codes check this page.</td>
+                <td>No</td>
+                <td>16</td>
+              </tr>
+              <tr>
+                <th class="text-center" colspan="4">Buyer Information. These fields can be used to pre-populate forms with any information you already know about your buyer.</th>
+              </tr>
+              <tr>
+                <td>first_name</td>
+                <td>Buyer's first name.</td>
+                <td>No</td>
+                <td>32</td>
+              </tr>
+              <tr>
+                <td>last_name</td>
+                <td>Buyer's last name.</td>
+                <td>No</td>
+                <td>32</td>
+              </tr>
+              <tr>
+                <td>email</td>
+                <td>Buyer's email address.</td>
+                <td>No</td>
+                <td>128</td>
+              </tr>
+              <tr>
+                <td>address1</td>
+                <td>Street / address line 1</td>
+                <td>No</td>
+                <td>128</td>
+              </tr>
+              <tr>
+                <td>city</td>
+                <td>City</td>
+                <td>No</td>
+                <td>64</td>
+              </tr>
+                <tr>
+                  <td>phone</td>
+                  <td>Phone Number</td>
+                  <td>No</td>
+                  <td>32</td>
+                </tr> 
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="4" class="text-center">Feel free to check out our <a href="{{ route('shopbuttonexamples') }}" class="alinktext">example buttons</a>.</td>
+                </tr>
+              </tfoot>
+            </table>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			@if($requestparam !="")
+
+<div class="popup" style="display: block;" aria-modal="true" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Simple Button Maker</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="input-group-append copybtnbg" onclick="myCopyFunc1('1')" style="cursor: pointer;">
+                <span class="input-group-text btn sitebtn btn-sm" id="myTooltip1"><strong class="t-white"><i class="fa fa-clipboard"></i> Copy Button Code</strong></span>
+              </div>
+            </div>
+          </div><br>
+          <div class="alert alert-info">
+            <i class="fa fa-info-circle"></i> Copy the below code, after page refresh then you can't recover this code again!
+          </div>
+          <div class="buttonmakerbg">
+            <div class="examplebtnbg">
+              <div id="showHtmlForm">
+			  		<textarea rows="18" class="form-control" id="myInput">
+							<form action="{{ url('/makepayment') }}" method="post">
+								<input type="hidden" name="cmd" value="_pay_simple">
+								<input type="hidden" name="reset" value="1">
+								<input type="hidden" name="merchant" value="{{ $requestparam->merchant }}">
+								<input type="hidden" name="item_name" value="{{ $requestparam->item_name }}">
+								<input type="hidden" name="item_desc" value="{{ $requestparam->item_desc }}">
+								<input type="hidden" name="item_number" value="{{ $requestparam->item_number }}">
+								<input type="hidden" name="invoice" value="{{ $requestparam->invoice }}">
+								<input type="hidden" name="custom" value="{{ $requestparam->custom }}">
+								<input type="hidden" name="currency" value="{{ $requestparam->paymentcurrency }}">
+								<input type="hidden" name="amount" value="{{ $requestparam->item_amount }}">
+								<input type="hidden" name="want_shipping" value="{{ $requestparam->shipping_address == 1 ? 1:0 }}">
+								<input type="hidden" name="success_url" value="{{ $requestparam->success_url }}">
+								<input type="hidden" name="cancel_url" value="{{ $requestparam->cancel_url }}">
+								<input type="hidden" name="ipn_url" value="{{ $requestparam->ipn_url }}">
+								<input type="hidden" name="tax" value="{{ $requestparam->tax }}">
+								<input type="hidden" name="fee" value="{{ $requestparam->fee }}">
+								<input type="hidden" name="net" value="{{ $requestparam->net }}">
+								<input type="hidden" name="on1" value="{{ $requestparam->on1 }}">
+								<input type="hidden" name="ov1" value="{{ $requestparam->ov1 }}">
+								<input type="hidden" name="on2" value="{{ $requestparam->on2 }}">
+								<input type="hidden" name="ov2" value="{{ $requestparam->ov2 }}">
+								<input type="hidden" name="extra" value="{{ $requestparam->ov2 }}">
+								<input type="image" src="{{ $requestparam->radio }}" alt="">
+							</form>
+					</textarea>
+				</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+			@endif			
+		</div>		
+	</section>
+</article>
+
+
+
+        
+  </div>
+
+</div>
+</div>
+</section>
+
+
+<script>
+
+  $(document).ready(function(){
+
+   $('.extras').click(function(){
+
+    $('.profile-list').toggleClass('showing')
+
+  });
+
+   $('.more-menu-bottom').click(function(){
+
+    $('.extra-menu-mobile').toggleClass('showall-extramenus')
+
+  })
+
+ })
+  
+</script>
+
+</body>
+</html>
+
+

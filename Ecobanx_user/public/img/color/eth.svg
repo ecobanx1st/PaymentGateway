@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="eth" transform="translate(-0.305 -0.103)">
+    <circle id="Ellipse_28" data-name="Ellipse 28" cx="12" cy="12" r="12" transform="translate(0.305 0.103)" fill="#627eea"/>
+    <g id="Group_5123" data-name="Group 5123" transform="translate(6.808 3.026)">
+      <path id="Path_1293" data-name="Path 1293" d="M16.5,4v6.71l5.671,2.534Z" transform="translate(-10.826 -4)" fill="rgba(255,255,255,0.6)"/>
+      <path id="Path_1294" data-name="Path 1294" d="M14.672,4,9,13.244l5.672-2.534Z" transform="translate(-9 -4)" fill="#fff"/>
+      <path id="Path_1295" data-name="Path 1295" d="M16.5,20.908v4.559l5.675-7.851Z" transform="translate(-10.826 -7.316)" fill="rgba(255,255,255,0.6)"/>
+      <path id="Path_1296" data-name="Path 1296" d="M14.672,25.467v-4.56L9,17.616Z" transform="translate(-9 -7.316)" fill="#fff"/>
+      <path id="Path_1297" data-name="Path 1297" d="M16.5,18.7,22.169,15.4,16.5,12.872Z" transform="translate(-10.826 -6.161)" fill="rgba(255,255,255,0.2)"/>
+      <path id="Path_1298" data-name="Path 1298" d="M9,15.4,14.672,18.7V12.872Z" transform="translate(-9 -6.161)" fill="rgba(255,255,255,0.6)"/>
+    </g>
+  </g>
+</svg>
