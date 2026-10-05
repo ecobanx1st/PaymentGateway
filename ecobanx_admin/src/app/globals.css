@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --theme-text: #101828;
+  --text-primary: #0500FF;
+  --text-secondary: #667085;
+  --button-primary: #0500FF;
+  --button-secondary: #FFFFFF;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --nav-selected: linear-gradient(90deg, rgba(5, 0, 255, 0.1) 20%, rgba(5, 0, 255, 0) 100%);
+  --rounded: 18px;
+  --input-bg: #F8FAFC;
+  --input-text: #98A2B3;
+  --input-border: #D0D5DD;
+  --text-large: 16px;
+  --text-mid: 14px;
+  --text-small: 13px;
+}
+
+@theme inline {
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-button-primary: var(--button-primary);
+  --color-button-secondary: var(--button-secondary);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-card-bg: var(--card-bg);
+  --color-nav-selected: var(--nav-selected);
+  --color-theme-text: var(--theme-text);
+  --color-input-bg: var(--input-bg);
+  --color-input-text: var(--input-text);
+  --color-input-border: var(--input-border);
+  --text-large: var(--text-large);
+  --text-mid: var(--text-mid);
+  --text-small: var(--text-small);
+  --radius-rounded: var(--rounded);
+  /* --font-sans: var(--font-plus-jakarta-sans); */
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-secondary) var(--bg-primary);
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border: 1px solid var(--bg-primary);
+  border-radius: 999px;
+}
+
+@keyframes payment-flow {
+  0% {
+    transform: translateX(0) translateY(-50%);
+    opacity: 0;
+  }
+  20%, 80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(280px) translateY(-50%);
+    opacity: 0;
+  }
+}
+
+@keyframes soft-lift {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(5, 0, 255, 0.22);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(5, 0, 255, 0);
+  }
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--theme-text);
+  /* font-family: var(--font-plus-jakarta-sans), Arial, Helvetica, sans-serif; */
+}

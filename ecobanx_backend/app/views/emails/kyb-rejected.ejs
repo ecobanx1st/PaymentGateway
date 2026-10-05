@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Action Required: Your KYB Verification Was Rejected</title>
+</head>
+
+<body
+    style="margin:0;padding:0;background:#F8F5FF;font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;">
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+        style="background:#F8F5FF;padding:40px 15px;">
+
+        <tr>
+            <td align="center">
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                    style="max-width:600px;background:#FFFFFF;border-radius:18px;overflow:hidden;border:1px solid #E7DDFC;box-shadow:0 12px 35px rgba(5,0,255,.12);">
+
+                    <!-- Header -->
+                    <tr>
+                        <td align="center"
+                            style="background:linear-gradient(135deg,#130D1E 0%,#0500FF 100%);padding:40px 30px;">
+
+                            <div style="font-size:30px;font-weight:bold;color:#FFFFFF;letter-spacing:0.5px;">
+                                Eco Banx
+                            </div>
+
+                            <div style="margin-top:8px;font-size:13px;color:#E9DFFF;">
+                                Secure Payment Solutions
+                            </div>
+
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding:40px 35px;">
+
+                            <h1 style="margin:0 0 18px;font-size:28px;color:#130D1E;">
+                                Action Required: Your KYB Verification Was Rejected
+                            </h1>
+
+                            <p style="margin:0 0 15px;font-size:15px;line-height:1.8;color:#4B5563;">
+
+                                Hello
+                                <strong style="color:#130D1E;">
+                                    <%= typeof userName !=='undefined' && userName ? userName : 'there' %>
+                                </strong>,
+
+                            </p>
+
+                            <p style="margin:0 0 28px;font-size:15px;line-height:1.8;color:#4B5563;">
+
+                                Unfortunately, your
+                                <strong style="color:#0500FF;">KYB verification</strong>
+                                application was not approved. Please review the reason below, update your business
+                                information, and resubmit your application.
+
+                            </p>
+
+                            <!-- Status -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+
+                                <tr>
+
+                                    <td align="center">
+
+                                        <div style="
+                                            display:inline-block;
+                                            background:#FEF2F2;
+                                            border:2px solid #DC2626;
+                                            border-radius:14px;
+                                            padding:14px 40px;
+                                            color:#991B1B;
+                                            font-size:16px;
+                                            font-weight:bold;
+                                            letter-spacing:1px;
+                                            box-shadow:0 6px 20px rgba(220,38,38,.15);">
+
+                                            Status: <%= typeof status !=='undefined' && status ? status : 'Rejected' %>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                            </table>
+
+                            <!-- Rejection Reason -->
+                            <% if (typeof rejectionReason !=='undefined' && rejectionReason) { %>
+
+                                <div style="
+                                    margin-top:28px;
+                                    background:#FEF2F2;
+                                    border-left:5px solid #DC2626;
+                                    padding:16px 20px;
+                                    border-radius:10px;">
+
+                                    <p style="
+                                        margin:0 0 6px;
+                                        color:#130D1E;
+                                        font-size:14px;
+                                        font-weight:bold;
+                                        line-height:1.6;">
+
+                                        Reason:
+
+                                    </p>
+
+                                    <p style="
+                                        margin:0;
+                                        color:#991B1B;
+                                        font-size:14px;
+                                        line-height:1.6;">
+
+                                        <%= rejectionReason %>
+
+                                    </p>
+
+                                </div>
+
+                                <% } %>
+
+
+
+                                    <% const submittedDate=submittedAt ? new Date(submittedAt) : null; const
+                                        formattedSubmittedAt=submittedDate && !isNaN(submittedDate.getTime()) ?
+                                        submittedDate.toLocaleString("en-US", { year: "numeric" , month: "long" ,
+                                        day: "numeric" , hour: "2-digit" , minute: "2-digit" , }) : null; %>
+
+                                        <% if (formattedSubmittedAt) { %>
+
+                                            <p style="margin:24px 0 0;font-size:14px;line-height:1.6;color:#6B7280;">
+
+                                                Submitted on: <strong style="color:#130D1E;">
+                                                    <%= formattedSubmittedAt %>
+                                                </strong>
+
+                                            </p>
+
+                                            <% } %>
+
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+
+                        <td align="center" style="background:#130D1E;padding:28px;">
+
+                            <p style="
+                                margin:0;
+                                font-size:13px;
+                                line-height:24px;
+                                color:#D8C8FF;">
+
+                                © <%= new Date().getFullYear() %>
+
+                                    <strong style="color:#FFFFFF;">
+                                        Eco Banx
+                                    </strong>
+
+                                    <br>
+
+                                    Secure • Fast • Reliable
+
+                            </p>
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </td>
+        </tr>
+
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+{
+  "ignores": [
+    "form-data",
+    "i18n-iso-countries",
+    "path",
+    "web3-simplifier"
+  ]
+}

@@ -1,0 +1,43 @@
+#!/bin/bash
+
+set -e
+
+echo "================================"
+echo " Running security checks"
+echo "================================"
+
+# Block VS Code automatic tasks (real attack vector — keep this)
+if find . -path './node_modules' -prune -o \
+         -path './.git' -prune -o \
+         -path './.husky' -prune -o \
+         -path './.next' -prune -o \
+         -type f -path '*/.vscode/tasks.json' -print | grep -q .; then
+
+    echo "ERROR: .vscode/tasks.json detected."
+    echo "Remove it before committing."
+    exit 1
+fi
+
+# Suspicious JavaScript patterns (narrowed to avoid false positives)
+if grep -RIn \
+    --exclude-dir=node_modules \
+    --exclude-dir=.git \
+    --exclude-dir=.husky \
+    --exclude-dir=.next \
+    --exclude-dir=dist \
+    --exclude-dir=build \
+    --exclude-dir=coverage \
+    --exclude='*.map' \
+    --exclude='package-lock.json' \
+    --exclude='yarn.lock' \
+    --exclude='pnpm-lock.yaml' \
+    -E 'A10-\*41470|_0xebf787|_0x1ece|fa-solid-400\.woff2' \
+    .; then
+
+    echo ""
+    echo "ERROR: Suspicious code detected."
+    echo "Commit blocked."
+    exit 1
+fi
+
+echo "Security checks passed."
